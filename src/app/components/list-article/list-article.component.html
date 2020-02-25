@@ -1,0 +1,84 @@
+
+ 
+<div class="container">
+ 
+    
+ <owl-carousel [options]="myCarouselOptions" [items]="models" [carouselClasses]="['owl-theme', 'sliding']" >
+      <div class="item" *ngFor="let image of models;let i = index">
+       <div class="inline">
+        <h4 class="text-success"><a style="cursor: pointer;" [routerLink]="['/detail/',image.id]">{{image.title}}</a></h4>
+       </div>
+      </div>
+     </owl-carousel>
+       
+</div>
+ 
+
+<div class="container">
+
+  <div class="row">
+    
+    <div class="col-sm-3">
+        <!-- <form class="form-inline mt-4">
+            <input type="text" class="form-control" name="keyword" [(ngModel)]="searchRequest.keyword" (keypress)="search()" placeholder="বাংলায় সার্চ করুন"><br>
+          
+          </form> -->
+      <h2 class="my-4">বিভাগ</h2>
+        <div *ngFor="let category of categories" class="list-group">
+         <a style="cursor: pointer;" (click)="searchByCategory(category.name)" class="list-group-item">{{category.name}}</a>
+          </div>
+
+          <h2 class="my-4">লেখকগণ</h2>
+          <div *ngFor="let author of authors" class="list-group">
+           <a style="cursor: pointer;" (click)="searchByAuthor(author.name)" class="list-group-item">{{author.name}}</a>
+            </div>
+    </div>
+    <div class="col-sm-7">
+        <div>
+            <h5><i class="fa fa-angle-double-right"></i>
+              {{category}}</h5>
+        </div>
+        <div class="card mt-4" *ngFor="let model of models">
+     
+            <div class="card-body">
+                <h5 class="card-title text-success"> <a style="cursor: pointer;" [routerLink]="['/detail/',model.id]">{{model.title}}</a></h5>
+               
+                <p class="card-text">
+                {{model.headLine}}
+              
+                </p>
+                <p class="card-text">
+                  {{model.author.name}}
+                
+                  </p>
+      
+            </div>
+      </div>
+      
+
+ 
+ 
+ 
+    </div>
+
+    <div class="col-sm-2">
+        <h2 class="my-4">প্রসঙ্গসমূহ</h2>
+        <div *ngFor="let tag of tags">
+         
+        <a style="cursor: pointer;" (click)="searchByTag(tag.name)" class="bg-light">{{tag.name}}</a>
+       
+        </div>
+
+    </div>
+</div>
+
+
+<div class="d-flex justify-content-center">
+    <span class="pagination-info">Showing {{(searchRequest.page-1)*10+1}} to {{(searchRequest.page)*10}} of {{totalCount}} Records</span>
+</div>
+<div class="d-flex justify-content-center">
+    
+  <button class="btn btn-info" (show)="searchRequest.page>1" (click)="previous()"><i class="fa fa-arrow-left"></i></button>
+  <label>Current Page: {{searchRequest.page}} </label>
+  <button class="btn btn-info" (click)="next()"><i class="fa fa-arrow-right"></i></button>
+</div>

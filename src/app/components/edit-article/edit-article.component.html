@@ -1,0 +1,64 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="card card-default">
+        <div class="card-header">
+          <h3 class="card-title">Edit Article</h3>
+        </div>
+        <div class="card-body">
+          <form>
+              <div class="form-group">
+                  <label for="referenceNo">Serial No</label>
+                  <input type="text" class="form-control" name="referenceNo" id="referenceNo" [(ngModel)]="article.referenceNo" readonly>
+                  </div>
+           <div class="form-group">
+             <label for="title">Title</label>
+             <input type="text" id="title" name="title" [(ngModel)]="article.title" class="form-control">
+           </div>
+           
+           <div class="form-group">
+            <label for="headLine">HeadLine</label>
+            <input type="text" id="headLine" name="price" [(ngModel)]="article.headLine" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="authorId">Author </label>
+            <select id="authorId" name="authorId" [(ngModel)]="article.authorId" class="form-control">
+              <option *ngFor="let author of authors" value="{{author.id}}">{{author.name}}</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+            <label for="categoryId">Category </label>
+            <select id="categoryId" name="categoryId" [(ngModel)]="article.categoryId" class="form-control">
+              <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="tagId">Tag </label>
+            <select id="tagId" name="tagId" [(ngModel)]="article.tagId" class="form-control">
+              <option *ngFor="let tag of tags" value="{{tag.id}}">{{tag.name}}</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+            <label for="body">Article</label>
+            <app-ngx-editor name="body" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article.body"></app-ngx-editor>
+          </div>
+
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" (click)="editArticle(article)">Update</button>
+          </div>
+         
+          <div class="text-right">
+              <button class="btn btn-primary btn-block" [routerLink]="['/list']">Back To Articles List</button>
+          </div>
+  
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

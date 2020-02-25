@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">ফিকহি ইসলামি.Com আপনার প্রশ্নের উত্তর যত দ্রুত সম্ভব প্রদান করার চেষ্টা করবে - ইনশাআল্লাহ।</h3>
+          </div>
+          <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="name">নাম:</label>
+                    <input type="text" class="form-control" name="name" id="name" [(ngModel)]="model.name">
+                    </div>
+             <div class="form-group">
+               <label for="address"> ঠিকানা:</label>
+               <input type="text" id="address" name="address" [(ngModel)]="model.address" class="form-control">
+             </div>
+             <div class="form-group">
+              <label for="phone">মোবাইল নম্বর:</label>
+              <input type="text" id="phone" name="phone" [(ngModel)]="model.phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">ইমেইল:</label>
+              <input type="text" id="email" name="email" [(ngModel)]="model.email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="question">জিজ্ঞাসা (বাংলায় লিখুন):</label>
+              <textarea type="text" id="question" rows="5" name="question" [(ngModel)]="model.question" class="form-control"></textarea>
+            </div>
+             
+         
+  
+            <div class="text-right">
+                <input type="hidden" name="isAnswered" value="false">
+              <button type="submit" class="btn btn-primary btn-block btn-lg" (click)="saveFatawa()">Submit</button>
+            </div>
+           
+          
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
